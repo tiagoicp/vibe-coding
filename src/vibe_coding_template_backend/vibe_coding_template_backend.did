@@ -1,6 +1,7 @@
+type Language = variant { EN; ES; FR; IT; PT };
 service : {
   get_count : () -> (nat64) query;
-  greet : (text) -> (text) query;
+  greet : (text, opt Language) -> (text) query;
   increment : () -> (nat64);
   set_count : (nat64) -> (nat64);
 }

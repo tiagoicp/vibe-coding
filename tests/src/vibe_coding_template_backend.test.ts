@@ -53,9 +53,23 @@ describe("Vibe Coding Template Backend", () => {
   });
 
   // The `it` function is used to define individual tests
-  it("should greet with the provided name", async () => {
-    const response = await actor.greet("World");
+  it("should greet with the provided name in English by default", async () => {
+    const response = await actor.greet("World", []);
     expect(response).toEqual("Hello, World!");
+  });
+
+  it("should greet with the provided name in the specified language", async () => {
+    const responsePT = await actor.greet("World", [{ PT: null }]);
+    expect(responsePT).toEqual("Olá, World!");
+
+    const responseFR = await actor.greet("World", [{ FR: null }]);
+    expect(responseFR).toEqual("Bonjour, World!");
+
+    const responseES = await actor.greet("World", [{ ES: null }]);
+    expect(responseES).toEqual("Hola, World!");
+
+    const responseIT = await actor.greet("World", [{ IT: null }]);
+    expect(responseIT).toEqual("Ciao, World!");
   });
 
   it("should increment counter and return new value", async () => {
