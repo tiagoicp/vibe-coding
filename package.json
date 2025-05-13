@@ -1,0 +1,23 @@
+{
+  "name": "vibe-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "generate-candid": "bash ./scripts/generate-candid.sh",
+    "lint": "prettier --check . && cargo clippy --target wasm32-unknown-unknown",
+    "format": "prettier --write . && cargo fmt && cargo clippy --fix --target wasm32-unknown-unknown",
+    "test": "dfx build & vitest run -c tests/vitest.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@dfinity/pic": "^0.13.1",
+    "@types/node": "^22.14.1",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
+  }
+}
